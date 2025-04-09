@@ -7,6 +7,22 @@ if(isset($_GET['i'])):
         indexcontroller::{$metodo}();
     endif;
 else:
-    indexcontroller::index();
+    if(isset($_GET['g'])){
+        $metodo=$_GET['g'];
+        if(method_exists('gastoscontroller',$metodo)){
+            gastoscontroller::{$metodo}();
+        }else{
+            if(isset($_GET['u'])){
+                $metodo=$_GET['u'];
+                if(method_exists('usuarioscontroller',$metodo)){
+                    usuarioscontroller::{$metodo}();
+                }
+            }else{
+                indexcontroller::index();
+            }
+        }
+        
+    }
+
 endif;
 ?>

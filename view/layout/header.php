@@ -11,9 +11,9 @@
 <body>
   <header>
     <nav class="nav">
-        <a class="nav-link active" aria-current="page" href="#">Inicio</a>
-        <a class="nav-link" href="#">Gastos</a>
-        <a class="nav-link" href="#">Usuarios</a>
-        <a class="nav-link" href="#">Acerca de</a>
+        <a class="nav-link active" aria-current="page" href="index.php?i=index">Inicio</a>
+        <a class="nav-link" href="index.php?g=gastos">Gastos</a>
+        <a class="nav-link" href="index.php?u=usuarios">Usuarios</a>
+        <a class="nav-link" href="index.php?i=acerca">Acerca de</a>
     </nav>
   </header>  

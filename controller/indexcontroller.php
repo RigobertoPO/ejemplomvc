@@ -8,5 +8,8 @@ class indexcontroller{
     public static function index(){
         require_once("view/index.php");
     }
+    public static function acerca(){
+        require_once("view/acercade.php");
+    }
 }
 ?>
