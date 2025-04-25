@@ -1,6 +1,8 @@
 <?php
 require_once("config.php");
 require_once("controller/indexcontroller.php");
+require_once("controller/gastoscontroller.php");
+require_once("controller/usuarioscontroller.php");
 if(isset($_GET['i'])):
     $metodo=$_GET['i'];
     if(method_exists('indexcontroller',$metodo)):
@@ -11,18 +13,16 @@ else:
         $metodo=$_GET['g'];
         if(method_exists('gastoscontroller',$metodo)){
             gastoscontroller::{$metodo}();
-        }else{
-            if(isset($_GET['u'])){
-                $metodo=$_GET['u'];
-                if(method_exists('usuarioscontroller',$metodo)){
-                    usuarioscontroller::{$metodo}();
-                }
-            }else{
-                indexcontroller::index();
+        }   
+    }else{
+        if(isset($_GET['u'])){
+            $metodo=$_GET['u'];
+            if(method_exists('usuarioscontroller',$metodo)){
+                usuarioscontroller::{$metodo}();
             }
+        }else{
+            indexcontroller::index();
         }
-        
     }
-
 endif;
 ?>
