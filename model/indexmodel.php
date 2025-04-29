@@ -21,8 +21,7 @@ class Index{
     public function autentificacion($correo,$password){
         include_once("conexion.php");
         $cnn=new Conexion();
-        $consulta="SELECT * FROM usuarios 
-        where Correo=".$correo." And Password=".$password;
+        $consulta="SELECT * FROM usuarios WHERE Correo = '$correo' AND Password = '$password'";
         $resultado = $cnn->prepare($consulta);
         $resultado->execute();
         while ($row = $resultado->fetchAll(PDO::FETCH_ASSOC)) {
