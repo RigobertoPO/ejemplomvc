@@ -21,7 +21,6 @@ class indexcontroller{
         $password=$_REQUEST['password'];
         $indexmodel=new Index();
         $resultado=$indexmodel->autentificacion($correo,$password);
-        var_dump($resultado);
         session_start();
         if(isset($resultado)):
             foreach ($resultado as $key => $value){
