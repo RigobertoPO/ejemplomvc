@@ -10,7 +10,8 @@ class Gasto{
         include_once("conexion.php");
         $cnn=new Conexion();
         $consulta="INSERT INTO gastos(Descripcion,Monto,
-        IdCategoria,FechaRegistro,Activo)VALUES('$descripcion','$monto','$idcategoria','$fecha',1)";
+        IdCategoria,FechaRegistro,Activo)VALUES('$descripcion','$monto',
+        '$idcategoria','$fecha',1)";
         $resultado=$cnn->prepare($consulta);
         $resultado->execute();
         if($resultado){
