@@ -34,6 +34,32 @@ class Gasto{
         return $this->listaGastos;    
     }
     //UPDATE
+    public function modificarGasto($id,$descripcion,$monto,$idcategoria,$fecha){
+        include_once("conexion.php");
+        $cnn=new Conexion();
+        $consulta="UPDATE gastos SET Descripcion='$descripcion' where Id='$id'";
+        $resultado=$cnn->prepare($consulta);
+        $resultado->execute();
+        if($resultado){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
     //DELETE
+    public function eliminarGasto($id){
+        include_once("conexion.php");
+        $cnn=new Conexion();
+        $consulta="DELETE FROM gastos where Id='$id'";
+        $resultado=$cnn->prepare($consulta);
+        $resultado->execute();
+        if($resultado){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 }
 ?>
