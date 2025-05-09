@@ -21,13 +21,12 @@
                    echo '<a href="index.php?i=login">Iniciar sesión</a>';
                             }
                 else{
-                  
-                    if($_SESSION["tipoUsuario"]==1){
+                    if($_SESSION["tipoUsuario"]==1){ //si es administrador
                       echo '<a class="nav-link active" aria-current="page" href="index.php?i=index">Inicio</a>
                         <a class="nav-link" href="index.php?g=gastos">Gastos</a>
                         <a class="nav-link" href="index.php?u=usuarios">Usuarios</a>
                         <a class="nav-link" href="index.php?i=acerca">Acerca de</a> ';
-                    }else{
+                    }else{     //si es cliente
                     echo '<a class="nav-link active" aria-current="page" href="index.php?i=index">Inicio</a>
                           <a class="nav-link" href="index.php?i=acerca">Acerca de</a> ';
                     }

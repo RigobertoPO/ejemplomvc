@@ -33,6 +33,17 @@ class Gasto{
         }
         return $this->listaGastos;    
     }
+    public function obtenerGastoId($id){
+        include_once("conexion.php");
+        $cnn=new Conexion();
+        $consulta="SELECT * FROM gastos where Id='$id'";
+        $resultado = $cnn->prepare($consulta);
+        $resultado->execute();
+        while ($row = $resultado->fetchAll(PDO::FETCH_ASSOC)) {
+            $this->listaGastos[]=$row;
+        }
+        return $this->listaGastos;    
+    }
     //UPDATE
     public function modificarGasto($id,$descripcion,$monto,$idcategoria,$fecha){
         include_once("conexion.php");

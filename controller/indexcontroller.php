@@ -35,11 +35,24 @@ class indexcontroller{
         endif;   
         header("location:".urlsite."index.php?i=index");
     }
+    public static function registrar(){
+        require_once("view/registro.php");
+    }
     public static function cerrarSesion(){	
         session_start();
         if(session_destroy()){
             header("location:".urlsite."index.php?i=index");
         }	       
+    }
+     public static function guardar(){
+        $nombre=$_REQUEST['nombre'];
+        $correo=$_REQUEST['correo'];
+        $password=$_REQUEST['password'];
+        $indexmodel=new Index();
+        $resultado=$indexmodel->insertarUsuario($nombre,
+        $correo,$password);
+        header("location:".urlsite.
+        "index.php?i=login");
     }
 }
 ?>

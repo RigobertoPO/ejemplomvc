@@ -29,5 +29,20 @@ class Index{
         }
         return $this->usuarios;    
     }
+    public function insertarUsuario($nombre,$correo,$password){
+        include_once("conexion.php");
+        $cnn=new Conexion();
+        $consulta="INSERT INTO usuarios(Nombre,Correo,
+        Password,Tipo)VALUES('$nombre','$correo',
+        '$password',2)";
+        $resultado=$cnn->prepare($consulta);
+        $resultado->execute();
+        if($resultado){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 }
 ?>

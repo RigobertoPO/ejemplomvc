@@ -25,7 +25,10 @@ class gastoscontroller{
         "index.php?g=gastos");
     }
     public static function editar(){
-        require_once("view/gastos/editar.php");
+        $id 		= 	$_REQUEST['id'];    	
+    	$gastosModel 	=	new Gasto();        
+		$dato 		=	$gastosModel->obtenerGastoId($id);
+    	require_once("view/gastos/editar.php");	    	    	
     }
     public static function eliminar(){
         $id 		= 	$_REQUEST['id'];    	
